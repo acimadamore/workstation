@@ -1,0 +1,29 @@
+---
+
+apt_packages:
+  - bat
+  - build-essential
+  - cmake3
+  - direnv
+  - exuberant-ctags
+  - git
+  - htop
+  - httpie
+  - jq
+  - lm-sensors
+  - mtr
+  - neofetch
+  - network-manager-openvpn
+  - nmap
+  - python3-dev
+  - python3-pip
+  - ranger
+  - screen
+  - silversearcher-ag
+  - thefuck
+  - tmux
+  - tree
+  - unzip
+  - vim-gtk
+  - vagrant
+  - virtualbox

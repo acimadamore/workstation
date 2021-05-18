@@ -1,0 +1,12 @@
+---
+- hosts: workstation
+  vars_files:
+    - vars/main.yml
+  tasks:
+    - name: Install packages available in Ubuntu repository
+      apt:
+        name: "{{ apt_packages }}"
+        update_cache: yes
+        state: present
+
+
