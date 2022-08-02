@@ -4,7 +4,7 @@
     - vars/main.yml
   tasks:
     - name: Install packages available in Ubuntu repository
-      apt:
+      ansible.builtin.apt:
         name: "{{ apt_packages }}"
         update_cache: yes
         state: present
