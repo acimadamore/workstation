@@ -3,7 +3,7 @@
 apt_packages:
   - bat
   - build-essential
-  - cmake3
+  - cmake
   - direnv
   - exuberant-ctags
   - git
