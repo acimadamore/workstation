@@ -1,0 +1,7 @@
+---
+- name: Install snap packages
+  community.general.snap:
+    name: "{{ snap_packages }}"
+    state: present
+  tags:
+    - notest

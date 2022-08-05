@@ -1,0 +1,6 @@
+---
+- name: Install packages available in Ubuntu repository
+  ansible.builtin.apt:
+    name: "{{ apt_packages }}"
+    update_cache: true
+    state: present
