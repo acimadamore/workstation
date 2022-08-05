@@ -1,4 +1,7 @@
 ---
 
+roles:
+  - geerlingguy.docker
+
 collections:
   - community.general
