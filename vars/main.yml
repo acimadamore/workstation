@@ -57,3 +57,10 @@ ruby_versions:
   - 3.1.2
 
 ruby_default_version: 2.7.6
+
+fnm_path: "{{ ansible_env.HOME }}/.fnm"
+
+node_versions:
+  - --lts
+
+node_default_version: --lts

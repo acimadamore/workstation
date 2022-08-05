@@ -1,0 +1,37 @@
+---
+- name: Create "{{ fnm_path }}" directory
+  ansible.builtin.file:
+    path: "{{ fnm_path }}"
+    state: directory
+
+- name: Download and extract fnm release
+  ansible.builtin.unarchive:
+    src: https://github.com/Schniz/fnm/releases/latest/download/fnm-linux.zip
+    dest: "{{ fnm_path }}"
+    remote_src: yes
+    mode: u+x
+
+- name: Configure shell environment for fnm
+  ansible.builtin.blockinfile:
+    path: "{{ shell_configurations_file }}"
+    marker: "# {mark} FNM"
+    block: |
+      command -v fnm >/dev/null || export PATH="{{ fnm_path }}:$PATH"
+      eval "$(fnm env --use-on-cd)"
+
+- name: Install node versions
+  ansible.builtin.command: "{{ fnm_path }}/fnm install --log-level quiet {{ item }}"
+  with_items: "{{ node_versions }}"
+
+- name: Get installed Node versions
+  ansible.builtin.command: "{{ fnm_path }}/fnm list"
+  register: installed_node_versions
+  when: node_default_version == "--lts"
+
+- name: Override node_default_version
+  ansible.builtin.set_fact:
+    node_default_version: '{{ installed_node_versions.stdout | regex_search("\* (v[\d\.]+).* lts-latest", "\1", multiline = True) | first }}'
+  when: node_default_version == "--lts"
+
+- name: Set default Node version
+  ansible.builtin.command: "{{ fnm_path }}/fnm default {{ node_default_version }}"
