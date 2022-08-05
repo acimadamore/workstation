@@ -9,3 +9,5 @@
     - import_tasks: tasks/install_snaps.yml
 
     - import_tasks: tasks/install_pyenv.yml
+
+    - import_tasks: tasks/install_rbenv.yml

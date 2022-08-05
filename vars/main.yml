@@ -10,6 +10,7 @@ apt_packages:
   - htop
   - httpie
   - jq
+  - libreadline-dev
   - lm-sensors
   - mtr
   - neofetch
@@ -47,3 +48,12 @@ python_versions:
   - 3.10.6
 
 python_default_version: 3.9.13
+
+rbenv_path: "{{ ansible_env.HOME }}/.rbenv"
+
+ruby_versions:
+  - 2.6.10
+  - 2.7.6
+  - 3.1.2
+
+ruby_default_version: 2.7.6

@@ -1,0 +1,30 @@
+---
+- name: Install rbenv
+  ansible.builtin.git:
+    repo: https://github.com/rbenv/rbenv
+    dest: "{{ rbenv_path }}"
+
+- name: Create rbenv plugins directory
+  ansible.builtin.file:
+    path: "{{ rbenv_path }}/plugins"
+    state: directory
+
+- name: Install rbenv-build
+  ansible.builtin.git:
+    repo: https://github.com/rbenv/ruby-build.git
+    dest: "{{ rbenv_path }}/plugins/rbenv-build"
+
+- name: Configure shell environment for rbenv
+  ansible.builtin.blockinfile:
+    path: "{{ shell_configurations_file }}"
+    marker: "# {mark} RBENV"
+    block: |
+      command -v rbenv >/dev/null || export PATH="{{ rbenv_path }}/bin:$PATH"
+      eval "$(rbenv init -)"
+
+- name: Install Ruby interpreters
+  ansible.builtin.command: "{{ rbenv_path }}/bin/rbenv install -s {{ item }}"
+  with_items: "{{ ruby_versions }}"
+
+- name: Set Ruby default version
+  ansible.builtin.command: "{{ rbenv_path }}/bin/rbenv global {{ ruby_default_version }}"
