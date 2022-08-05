@@ -30,3 +30,20 @@ apt_packages:
 
 snap_packages:
   - spotify
+
+shell_configurations_file: "{{ ansible_env.HOME }}/.bashrc"
+
+pyenv_path: "{{ ansible_env.HOME }}/.pyenv"
+pyenv_plugins:
+  - doctor
+  - installer
+  - update
+  - virtualenv
+  - which-ext
+
+python_versions:
+  - 3.8.13
+  - 3.9.13
+  - 3.10.6
+
+python_default_version: 3.9.13

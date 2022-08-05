@@ -1,0 +1,27 @@
+---
+- name: Install pyenv
+  ansible.builtin.git:
+    repo: https://github.com/pyenv/pyenv.git
+    dest: "{{ pyenv_path }}"
+
+- name: Install pyenv's plugins
+  ansible.builtin.git:
+    repo: "https://github.com/pyenv/pyenv-{{ item }}.git"
+    dest: "{{ pyenv_path }}/plugins/pyenv-{{ item }}"
+  with_items: "{{ pyenv_plugins }}"
+
+- name: Configure shell environment for pyenv
+  ansible.builtin.blockinfile:
+    path: "{{ shell_configurations_file }}"
+    marker: "# {mark} PYENV"
+    block: |
+      export PYENV_ROOT="{{ pyenv_path }}"
+      command -v pyenv >/dev/null || export PATH="{{ pyenv_path }}/bin:$PATH"
+      eval "$(pyenv init -)"
+
+- name: Install Python interpreters
+  ansible.builtin.command: "{{ pyenv_path }}/bin/pyenv install -s {{ item }}"
+  with_items: "{{ python_versions }}"
+
+- name: Set Python default version
+  ansible.builtin.command: "{{ pyenv_path }}/bin/pyenv global {{ python_default_version }}"
