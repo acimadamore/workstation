@@ -64,3 +64,6 @@ node_versions:
   - --lts
 
 node_default_version: --lts
+
+docker_users:
+  - "{{ ansible_user_id }}"
