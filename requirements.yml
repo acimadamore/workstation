@@ -2,6 +2,7 @@
 
 roles:
   - geerlingguy.docker
+  - acimadamore.dotfiles
 
 collections:
   - community.general
