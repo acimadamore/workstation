@@ -1,6 +1,5 @@
 ---
 - hosts: workstation
-  become: true
   vars_files:
     - vars/main.yml
   tasks:
@@ -16,6 +15,8 @@
 
     - include_role:
         name: geerlingguy.docker
+      vars:
+        ansible_become: true
 
     - include_role:
         name: acimadamore.dotfiles
