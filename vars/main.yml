@@ -67,3 +67,7 @@ node_default_version: --lts
 
 docker_users:
   - "{{ ansible_user_id }}"
+
+dotfiles_repository: https://github.com/acimadamore/dotfiles
+
+dotfiles_repository_path: ~/Workspace/dotfiles
