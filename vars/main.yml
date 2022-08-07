@@ -29,8 +29,7 @@ apt_packages:
   - vagrant
   - virtualbox
 
-snap_packages:
-  - spotify
+snap_packages: []
 
 shell_configurations_file: "{{ ansible_env.HOME }}/.bashrc"
 
