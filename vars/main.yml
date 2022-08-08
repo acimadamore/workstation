@@ -45,7 +45,6 @@ python_versions:
   - 3.8.13
   - 3.9.13
   - 3.10.6
-
 python_default_version: 3.9.13
 
 rbenv_path: "{{ ansible_env.HOME }}/.rbenv"
@@ -54,19 +53,16 @@ ruby_versions:
   - 2.6.10
   - 2.7.6
   - 3.1.2
-
 ruby_default_version: 2.7.6
 
 fnm_path: "{{ ansible_env.HOME }}/.fnm"
 
 node_versions:
   - --lts
-
 node_default_version: --lts
 
 docker_users:
   - "{{ ansible_user_id }}"
 
 dotfiles_repository: https://github.com/acimadamore/dotfiles
-
 dotfiles_repository_path: ~/Workspace/dotfiles
