@@ -4,23 +4,48 @@
     - vars/main.yml
   tasks:
     - ansible.builtin.import_tasks: tasks/apt_packages.yml
+      tags:
+        - packages
 
     - ansible.builtin.import_tasks: tasks/snaps.yml
+      tags:
+        - snaps
 
     - ansible.builtin.import_tasks: tasks/visual_code.yml
+      tags:
+        - code
+        - visual-code
 
     - ansible.builtin.import_tasks: tasks/direnv.yml
+      tags:
+        - direnv
 
     - ansible.builtin.import_tasks: tasks/pyenv.yml
+      tags:
+        - pyenv
+        - python
+        - interpreters
 
     - ansible.builtin.import_tasks: tasks/rbenv.yml
+      tags:
+        - rbenv
+        - ruby
+        - interpreters
 
     - ansible.builtin.import_tasks: tasks/fnm.yml
+      tags:
+        - fnm
+        - node
+        - interpreters
 
     - ansible.builtin.include_role:
         name: geerlingguy.docker
       vars:
         ansible_become: true
+      tags:
+        - docker
 
     - ansible.builtin.include_role:
         name: acimadamore.dotfiles
+      tags:
+        - dotfiles
