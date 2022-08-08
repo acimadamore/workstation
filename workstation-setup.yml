@@ -3,19 +3,19 @@
   vars_files:
     - vars/main.yml
   tasks:
-    - import_tasks: tasks/install_packages.yml
+    - import_tasks: tasks/apt_packages.yml
 
-    - import_tasks: tasks/install_snaps.yml
+    - import_tasks: tasks/snaps.yml
 
-    - import_tasks: tasks/install_visual_code.yml
+    - import_tasks: tasks/visual_code.yml
 
-    - import_tasks: tasks/install_direnv.yml
+    - import_tasks: tasks/direnv.yml
 
-    - import_tasks: tasks/install_pyenv.yml
+    - import_tasks: tasks/pyenv.yml
 
-    - import_tasks: tasks/install_rbenv.yml
+    - import_tasks: tasks/rbenv.yml
 
-    - import_tasks: tasks/install_fnm.yml
+    - import_tasks: tasks/fnm.yml
 
     - include_role:
         name: geerlingguy.docker
