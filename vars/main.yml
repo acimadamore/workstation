@@ -4,6 +4,7 @@ apt_packages:
   - bat
   - build-essential
   - cmake
+  - chromium-browser
   - exuberant-ctags
   - git
   - htop
