@@ -3,24 +3,24 @@
   vars_files:
     - vars/main.yml
   tasks:
-    - import_tasks: tasks/apt_packages.yml
+    - ansible.builtin.import_tasks: tasks/apt_packages.yml
 
-    - import_tasks: tasks/snaps.yml
+    - ansible.builtin.import_tasks: tasks/snaps.yml
 
-    - import_tasks: tasks/visual_code.yml
+    - ansible.builtin.import_tasks: tasks/visual_code.yml
 
-    - import_tasks: tasks/direnv.yml
+    - ansible.builtin.import_tasks: tasks/direnv.yml
 
-    - import_tasks: tasks/pyenv.yml
+    - ansible.builtin.import_tasks: tasks/pyenv.yml
 
-    - import_tasks: tasks/rbenv.yml
+    - ansible.builtin.import_tasks: tasks/rbenv.yml
 
-    - import_tasks: tasks/fnm.yml
+    - ansible.builtin.import_tasks: tasks/fnm.yml
 
-    - include_role:
+    - ansible.builtin.include_role:
         name: geerlingguy.docker
       vars:
         ansible_become: true
 
-    - include_role:
+    - ansible.builtin.include_role:
         name: acimadamore.dotfiles
