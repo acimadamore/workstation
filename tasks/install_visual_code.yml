@@ -1,0 +1,19 @@
+---
+- name: Install Visual Code's signing key
+  become: true
+  ansible.builtin.apt_key:
+    url: https://packages.microsoft.com/keys/microsoft.asc
+    state: present
+
+- name: Add Visual Code's apt repository
+  become: true
+  ansible.builtin.apt_repository:
+    repo: deb [arch=amd64,arm64,armhf] http://packages.microsoft.com/repos/code stable main
+    state: present
+
+- name: Install Visual Code
+  become: true
+  ansible.builtin.apt:
+    name: code
+    update_cache: true
+    state: present
