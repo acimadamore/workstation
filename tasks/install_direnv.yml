@@ -1,0 +1,13 @@
+---
+- name: Install direnv
+  become: true
+  ansible.builtin.apt:
+    name: direnv
+    state: present
+
+- name: Configure shell environment for direnv
+  ansible.builtin.blockinfile:
+    path: "{{ shell_configurations_file }}"
+    marker: "# {mark} DIRENV"
+    block: |
+      eval "$(direnv hook bash)"

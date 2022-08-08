@@ -9,6 +9,8 @@
 
     - import_tasks: tasks/install_visual_code.yml
 
+    - import_tasks: tasks/install_direnv.yml
+
     - import_tasks: tasks/install_pyenv.yml
 
     - import_tasks: tasks/install_rbenv.yml
