@@ -14,6 +14,11 @@
     repo: https://github.com/rbenv/ruby-build.git
     dest: "{{ rbenv_path }}/plugins/rbenv-build"
 
+- name: Install rbenv-build recommended packages
+  ansible.builtin.apt:
+    name: "{{ rbenv_build_recommended_packages }}"
+    state: present
+
 - name: Configure shell environment for rbenv
   ansible.builtin.blockinfile:
     path: "{{ shell_configurations_file }}"
