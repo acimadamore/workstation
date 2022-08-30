@@ -15,6 +15,7 @@
     dest: "{{ rbenv_path }}/plugins/rbenv-build"
 
 - name: Install rbenv-build recommended packages
+  become: true
   ansible.builtin.apt:
     name: "{{ rbenv_build_recommended_packages }}"
     state: present
