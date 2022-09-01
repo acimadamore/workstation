@@ -2,15 +2,12 @@
 
 apt_packages:
   - bat
-  - build-essential
-  - cmake
   - chromium-browser
   - exuberant-ctags
   - git
   - htop
   - httpie
   - jq
-  - libreadline-dev
   - lm-sensors
   - mtr
   - neofetch
