@@ -41,6 +41,8 @@ This playbook run the following tasks.
 
 - Install [Visual Studio Code](https://code.visualstudio.com/).
 
+- Install and configure [fzf](https://github.com/junegunn/fzf).
+
 - Install and configure [direnv](https://direnv.net/).
 
 - Install and configure [pyenv](https://github.com/pyenv/pyenv). Install specified Python versions and sets one as default.
@@ -80,7 +82,7 @@ If you need to, you can skip parts of this playbook or run only a subset of the 
 ansible-playbook workstation.yml --ask-become-pass --tags packages,docker,dotfiles
 ```
 
-The tags available are: `packages`, `snaps`, `code` / `visual-code`, `direnv`, `interpreters` ( `pyenv` / `python`, `rbenv` / `ruby`, `fnm` / `node` ), `docker`, `dotfiles`.
+The tags available are: `packages`, `snaps`, `code` / `visual-code`, `fzf`, `direnv`, `interpreters` ( `pyenv` / `python`, `rbenv` / `ruby`, `fnm` / `node` ), `docker`, `dotfiles`.
 
 You can avoid/skip certain tasks using the inverse flag `--skip-tags`.
 

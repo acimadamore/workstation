@@ -16,6 +16,10 @@
         - code
         - visual-code
 
+    - ansible.builtin.import_tasks: tasks/fzf.yml
+      tags:
+        - fzf
+
     - ansible.builtin.import_tasks: tasks/direnv.yml
       tags:
         - direnv

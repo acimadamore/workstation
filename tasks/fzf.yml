@@ -1,0 +1,15 @@
+---
+- name: Clone FZF repository
+  ansible.builtin.git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "{{ ansible_env.HOME }}/.fzf"
+
+- name: Install FZF
+  ansible.builtin.command: "{{ ansible_env.HOME }}/.fzf/install"
+
+- name: Configure shell environment for fzf
+  ansible.builtin.blockinfile:
+    path: "{{ shell_configurations_file }}"
+    marker: "# {mark} FZF"
+    block: |
+      [ -f ~/.fzf.bash ] && source ~/.fzf.bash
