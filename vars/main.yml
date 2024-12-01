@@ -23,8 +23,7 @@ apt_packages:
   - tmux
   - tree
   - unzip
-  - vim-gtk
-  - vagrant
+  - vim-gtk3
   - virtualbox
 
 snap_packages: []
@@ -59,10 +58,10 @@ pyenv_recommended_packages:
   - zlib1g-dev
 
 python_versions:
-  - 3.8.13
-  - 3.9.13
-  - 3.10.6
-python_default_version: 3.9.13
+  - 3.9.20
+  - 3.10.15
+  - 3.12.7
+python_default_version: 3.12.7
 
 rbenv_path: "{{ ansible_env.HOME }}/.rbenv"
 
@@ -82,10 +81,9 @@ rbenv_build_recommended_packages:
   - uuid-dev
 
 ruby_versions:
-  - 2.6.10
-  - 2.7.6
-  - 3.1.2
-ruby_default_version: 2.7.6
+  - 2.7.7
+  - 3.3.6
+ruby_default_version: 3.3.6
 
 fnm_path: "{{ ansible_env.HOME }}/.fnm"
 
